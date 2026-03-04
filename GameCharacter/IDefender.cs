@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameCharacter
+interface IDefender
 {
-    internal interface IDefender
-    {
-    }
+    int CurrentHp { get; }
+    int MaxHp { get; }
+    bool IsDead { get; }
+    void TakeDamage(int damage);  // 선언만 함
 }

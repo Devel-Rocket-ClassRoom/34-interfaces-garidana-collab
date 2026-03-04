@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameCharacter
+interface IAttacker
 {
-    internal interface IAttacker
-    {
-    }
+    int AttackPower { get; }
+    void Attack(IDefender target);  // 선언 만
 }
