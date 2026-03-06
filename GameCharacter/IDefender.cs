@@ -4,8 +4,9 @@ using System.Text;
 
 interface IDefender
 {
+
     int CurrentHp { get; }
     int MaxHp { get; }
-    bool IsDead { get; }
+    bool IsDead { get; set; }
     void TakeDamage(int damage);  // 선언만 함
 }

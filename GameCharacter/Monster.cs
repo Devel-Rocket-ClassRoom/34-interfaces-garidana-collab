@@ -11,7 +11,7 @@ class Monster : IAttacker, IDefender
 
     public int MaxHp { get; private set; }
 
-    public bool IsDead { get; private set; }
+    public bool IsDead { get; set; }
 
     public Monster(string name, int maxHp, int attackPower)
     {
@@ -19,19 +19,23 @@ class Monster : IAttacker, IDefender
         MaxHp = maxHp;
         AttackPower = attackPower;
         IsDead = false;
+        CurrentHp = maxHp;
     }
-   
-    
+
+    public override string ToString()
+    {
+        return Name;
+    }
     
     public void Attack(IDefender target)
     {
         target.TakeDamage(AttackPower);
-        Console.WriteLine($"{Name}(이/가) {target}에게 {AttackPower} 대미지! ({target} HP : {target.CurrentHp}/{target.MaxHp}");
+        Console.WriteLine($"{Name}(이/가) {ToString()}에게 {AttackPower} 대미지! ({target} HP : {target.CurrentHp}/{target.MaxHp}");
     }
 
     public void TakeDamage(int damage)
     {
-        CurrentHp = MaxHp - damage;
+        CurrentHp = CurrentHp - damage;
         if (CurrentHp <= 0)
         {
             IsDead = true;
