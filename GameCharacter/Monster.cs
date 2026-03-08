@@ -30,7 +30,7 @@ class Monster : IAttacker, IDefender
     public void Attack(IDefender target)
     {
         target.TakeDamage(AttackPower);
-        Console.WriteLine($"{Name}(이/가) {ToString()}에게 {AttackPower} 대미지! ({target} HP : {target.CurrentHp}/{target.MaxHp}");
+        Console.WriteLine($"{Name}(이/가) {ToString()}에게 {AttackPower} 대미지! ({target} HP : {target.CurrentHp}/{target.MaxHp})");
     }
 
     public void TakeDamage(int damage)
